@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tsunami Studios - Home</title>
+  <link rel="icon" type="image/png" href="images/lgo.png">
+    <link rel="stylesheet" type="text/css" href="CSS\home.css">
+</head>
+<body>
+<video poster="images/logo.png" id="bgvid" playsinline autoplay muted loop>
+<source src="HawkingProject.mp4" type="video/mp4">
+<source src="HawkingProject.mp4" type="video/mp4">
+</video>
+<div id="#JD">
+<center><img src="images/log.png" style="width: 200px; height: 200px;"></center>
+<center><p><font face="Raleway">animation by TsunamiStudios</font></p></center>
+<button>Pause</button>
+<p><font face="Raleway">Tsunami Studios is a multinational company specializing in the planning, development and distribution of video games and the research, development and distribution of software, data and video media. The company was originally founded in 1996 as a computer graphics producer. On January 16, 2002, the company launched a game development division and re-established itself as primarily a video game company. On September 30, 2003, Tsunami Studios became a wholly owned subsidiary of MIS, in turn a subsidiary of MINET.</font></p>
+<center><p><a href="about.html"><font face="Raleway">Click me to know more !</a></p></center>
+
+</div>
+<script type="text/javascript">
+  var vid = document.getElementById("bgvid");
+var pauseButton = document.querySelector("#JD button");
+
+if (window.matchMedia('(prefers-reduced-motion)').matches) {
+    vid.removeAttribute("autoplay");
+    vid.pause();
+    pauseButton.innerHTML = "Paused";
+}
+
+function vidFade() {
+  vid.classList.add("stopfade");
+}
+
+vid.addEventListener('ended', function()
+{
+// only functional if "loop" is removed 
+vid.pause();
+// to capture IE10
+vidFade();
+}); 
+
+
+pauseButton.addEventListener("click", function() {
+  vid.classList.toggle("stopfade");
+  if (vid.paused) {
+    vid.play();
+    pauseButton.innerHTML = "Pause";
+  } else {
+    vid.pause();
+    pauseButton.innerHTML = "Paused";
+  }
+})
+</script>
+</body>
+</html>
